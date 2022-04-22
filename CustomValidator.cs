@@ -47,9 +47,14 @@ public static class CustomValidator
                 isValid = false;
             }
 
+            var invalidBrackets = new ValidationResult($"Invalid brackets!");
+
+            if (bracketQueueList.Any())
+                return invalidBrackets;
+
             return isValid
                     ? new ValidationResult($"The brackets {text} are valid!")
-                    : new ValidationResult($"Invalid brackets!");
+                    : invalidBrackets;
         };
     }
 
